@@ -1,0 +1,51 @@
+
+    #include<stdio.h>
+int main()
+{
+    int day,mon,year;
+    int remday=0,i=0,j=0,k=0,remmon,bear,remyear;
+
+    printf("Current date :-");
+    scanf("%d %d %d",&day,&mon,&year);
+    
+    for(i=year;i<=2030;i++)
+    {
+      for(j=mon;j<=12;j++)
+      {
+        for(k=day;k<=30;k++)
+        {
+          remday=remday+1;
+        }
+        day=1;
+      }
+      mon=1;
+    }
+    year=2031;
+    mon=1;
+    day=1;
+    for(i=year;i<=2031;i++)
+    {
+      for(j=mon;j<=2;j++)
+      {
+        for(k=day;k<=23;k++)
+        {
+          remday=remday+1;
+        }
+        day=1;
+      }
+      mon=1;
+    }
+    remday=remday+6;
+    printf("%d",remday);
+
+    remmon=remday%360;
+    remyear=(remday-remmon)/360;
+    bear=remmon%30;
+    remmon=(remmon-bear)/30;
+
+    printf("\n%d years",remyear);
+    printf("\n%d months",remmon);
+    printf("\n%d days ",bear);
+
+    return 0;
+}
